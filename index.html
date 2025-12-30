@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>SaaS Landing</title>
+
+<style>
+{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  background: #f8f9fc;
+  color: #222;
+}
+
+header {
+  background: white;
+  padding: 20px 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: 700;
+  color: #4f46e5;
+}
+
+nav a {
+  margin-left: 25px;
+  text-decoration: none;
+  color: #444;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+nav a:hover {
+  color: #4f46e5;
+}
+
+.btn {
+  background: #4f46e5;
+  color: white;
+  padding: 12px 22px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  display: inline-block;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-outline {
+  background: transparent;
+  border: 2px solid #4f46e5;
+  color: #4f46e5;
+  margin-left: 10px;
+}
+
+/* Hero */
+.hero {
+  padding: 100px 80px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.hero h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 18px;
+  color: #555;
+  margin-bottom: 30px;
+}
+
+.hero img {
+  width: 100%;
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+/* Sections */
+section {
+  scroll-margin-top: 90px;
+}
+
+.features {
+  padding: 80px;
+  background: white;
+  text-align: center;
+}
+
+.features h2 {
+  font-size: 36px;
+  margin-bottom: 15px;
+}
+
+.features p {
+  color: #666;
+  margin-bottom: 50px;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
+
+.card {
+  background: #f9fafb;
+  padding: 30px;
+  border-radius: 16px;
+  transition: 0.3s;
+  text-align: left;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+.card h3 {
+  margin-bottom: 10px;
+  color: #4f46e5;
+}
+
+/* CTA */
+.cta {
+  padding: 80px;
+  background: linear-gradient(135deg, #4f46e5, #6366f1);
+  color: white;
+  text-align: center;
+}
+
+.cta h2 {
+  font-size: 40px;
+  margin-bottom: 15px;
+}
+
+.cta p {
+  margin-bottom: 30px;
+}
+
+/* Modal */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 200;
+}
+
+.modal.active {
+  display: flex;
+}
+
+.modal-box {
+  background: white;
+  padding: 30px;
+  border-radius: 14px;
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.modal-box h2 {
+  margin-bottom: 15px;
+}
+
+.modal-box input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.close {
+  margin-top: 10px;
+  background: transparent;
+  color: #555;
+  border: none;
+  cursor: pointer;
+}
+
+footer {
+  padding: 30px;
+  text-align: center;
+  background: #0f172a;
+  color: #cbd5e1;
+}
+
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  header {
+    padding: 20px 30px;
+  }
+
+  .features, .cta {
+    padding: 60px 30px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">SaaSify</div>
+  <nav>
+    <a onclick="scrollToSection('features')">Features</a>
+    <a onclick="alert('Pricing page coming soon 🚀')">Pricing</a>
+    <a onclick="alert('Docs will be available soon 📘')">Docs</a>
+    <a class="btn btn-outline" onclick="openLogin()">Login</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div>
+    <h1>Build, Launch & Scale Your SaaS Faster</h1>
+    <p>
+      Manage users, analytics, billing and automation in one powerful platform.
+    </p>
+    <button class="btn" onclick="openSignup()">Get Started Free</button>
+    <button class="btn btn-outline" onclick="scrollToSection('features')">Live Demo</button>
+  </div>
+
+  <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71" />
+</section>
+
+<section class="features" id="features">
+  <h2>Everything You Need</h2>
+  <p>Modern tools designed for fast-growing products.</p>
+
+  <div class="feature-grid">
+    <div class="card">
+      <h3>📊 Analytics</h3>
+      <p>Track performance and users in real time.</p>
+    </div>
+    <div class="card">
+      <h3>🔐 Secure Auth</h3>
+      <p>Login, signup, and role-based access.</p>
+    </div>
+    <div class="card">
+      <h3>⚡ Fast Performance</h3>
+      <p>Optimized for speed and scalability.</p>
+    </div>
+    <div class="card">
+      <h3>💳 Payments</h3>
+      <p>Subscription & billing ready.</p>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <h2>Start Your SaaS Today</h2>
+  <p>No credit card required. Try it free.</p>
+  <button class="btn" onclick="openSignup()">Create Free Account</button>
+</section>
+
+<footer>
+  © 2025 SaaSify. All rights reserved.
+</footer>
+
+<!-- LOGIN MODAL -->
+<div class="modal" id="loginModal">
+  <div class="modal-box">
+    <h2>Login</h2>
+    <input type="email" placeholder="Email">
+    <input type="password" placeholder="Password">
+    <button class="btn" onclick="login()">Login</button>
+    <button class="close" onclick="closeModals()">Close</button>
+  </div>
+</div>
+
+<!-- SIGNUP MODAL -->
+<div class="modal" id="signupModal">
+  <div class="modal-box">
+    <h2>Create Account</h2>
+    <input type="text" placeholder="Full Name">
+    <input type="email" placeholder="Email">
+    <input type="password" placeholder="Password">
+    <button class="btn" onclick="signup()">Sign Up</button>
+    <button class="close" onclick="closeModals()">Close</button>
+  </div>
+</div>
+
+<script>
+function scrollToSection(id) {
+  document.getElementById(id).scrollIntoView({ behavior: "smooth" });
+}
+
+function openLogin() {
+  document.getElementById("loginModal").classList.add("active");
+}
+
+function openSignup() {
+  document.getElementById("signupModal").classList.add("active");
+}
+
+function closeModals() {
+  document.getElementById("loginModal").classList.remove("active");
+  document.getElementById("signupModal").classList.remove("active");
+}
+
+function login() {
+  alert("Login successful (demo only)");
+  closeModals();
+}
+
+function signup() {
+  alert("Account created successfully 🎉 (demo)");
+  closeModals();
+}
+</script>
+
+</body>
+</html>
